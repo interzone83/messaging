@@ -28,10 +28,23 @@
             background-color: #f9f9f9;
         }
         .message {
-            background: #e0e0e0;
             margin: 10px 0;
             padding: 10px;
             border-radius: 10px;
+            max-width: 70%;
+            clear: both;
+        }
+        .from-them {
+            background: #e0e0e0;
+            align-self: flex-start;
+            float: left;
+        }
+        .from-you {
+            background: #4caf50;
+            color: white;
+            align-self: flex-end;
+            float: right;
+            margin-left: auto;
         }
         .footer {
             background-color: #333;
@@ -60,26 +73,11 @@
 <body>
     <div class="header">Jessica</div>
     <div class="chat-container">
-        <div class="message from-them">Hey, are we meeting at 6?</div>
-        <div class="message from-you">Yeah, I'll be there. See you soon!</div>
-        <div class="message from-them">Great! I’ve got some news for you.</div>
-        <div class="message from-you">Can't wait to hear it!</div>
-        <div class="message from-them">Hey, are we meeting at 6?</div>
-        <div class="message from-you">Yeah, I'll be there. See you soon!</div>
-        <div class="message from-them">Great! I’ve got some news for you.</div>
-        <div class="message from-you">Can't wait to hear it!</div>
-        <div class="message from-them">Hey, are we meeting at 6?</div>
-        <div class="message from-you">Yeah, I'll be there. See you soon!</div>
-        <div class="message from-them">Great! I’ve got some news for you.</div>
-        <div class="message from-you">Can't wait to hear it!</div>
-        <div class="message from-them">Hey, are we meeting at 6?</div>
-        <div class="message from-you">Yeah, I'll be there. See you soon!</div>
-        <div class="message from-them">Great! I’ve got some news for you.</div>
-        <div class="message from-you">Can't wait to hear it!</div>
-        <div class="message from-them">Hey, are we meeting at 6?</div>
-        <div class="message from-you">Yeah, I'll be there. See you soon!</div>
-        <div class="message from-them">Great! I’ve got some news for you.</div>
-        <div class="message from-you">Can't wait to hear it!</div>
+        <div class="message from-them">Hi there! How are you today?</div>
+        <div class="message from-you">I'm doing well, thank you!</div>
+        <div class="message from-them">Great! I have some news to share.</div>
+        <div class="message from-you">Awesome, I'm all ears!</div>
+        <!-- More messages as needed -->
     </div>
     <div class="footer">
         <input type="text" placeholder="Type a message...">
