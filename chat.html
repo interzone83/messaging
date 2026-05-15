@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Form Generator</title>
+    <title>Chat with Jessica</title>
     <style>
         body {
             font-family: sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             display: flex;
             flex-direction: column;
             height: 100vh;
         }
-        .form {
-            margin-bottom: 20px;
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.5em;
+            flex-shrink: 0;
         }
         .chat-container {
             flex: 1;
             overflow-y: auto;
-            background-color: #f9f9f9;
             padding: 10px;
-            border: 1px solid #ccc;
-            margin-bottom: 20px;
+            background-color: #f9f9f9;
         }
         .message {
             margin: 10px 0;
@@ -43,44 +46,42 @@
             float: right;
             margin-left: auto;
         }
+        .footer {
+            background-color: #333;
+            display: flex;
+            padding: 10px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .footer input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-right: 10px;
+        }
+        .footer button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <div class="form">
-        <label for="sender">Sender:</label>
-        <select id="sender">
-            <option value="from-them">Jessica</option>
-            <option value="from-you">You        
-        
-        
-        
-        
-        
-        
-            </select>
-        <br>
-        <label for="message">Message:</label>
-        <input type="text" id="message" placeholder="Type your message" style="width: 100%; padding: 8px; margin-top: 5px;">
-        <br>
-        <button type="button" onclick="addMessage()">Add Message</button>
+    <div class="header">Jessica</div>
+    <div class="chat-container">
+        <div class="message from-them">Hi there! How are you today?</div>
+        <div class="message from-you">I'm doing well, thank you!</div>
+        <div class="message from-them">Great! I have some news to share.</div>
+        <div class="message from-you">Awesome, I'm all ears!</div>
+        <!-- More messages as needed -->
     </div>
-    <div class="chat-container" id="chat-container">
-        <!-- Messages will appear here -->
+    <div class="footer">
+        <input type="text" placeholder="Type a message...">
+        <button>Send</button>
     </div>
-    <script>
-        function addMessage() {
-            const sender = document.getElementById('sender').value;
-            const messageText = document.getElementById('message').value;
-            if (messageText.trim() === '') return;
-
-            const messageDiv = document.createElement('div');
-            messageDiv.className = 'message ' + sender;
-            messageDiv.textContent = messageText;
-            document.getElementById('chat-container').appendChild(messageDiv);
-
-            // Clear the input after adding
-            document.getElementById('message').value = '';
-        }
-    </script>
 </body>
 </html>
