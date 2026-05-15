@@ -5,70 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat with Jessica</title>
     <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-        .header {
-            background-color: #333;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-size: 1.5em;
-            flex-shrink: 0;
-        }
-        .chat-container {
-            flex: 1;
-            overflow-y: auto;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
-        .message {
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 10px;
-            max-width: 70%;
-            clear: both;
-        }
-        .from-them {
-            background: #e0e0e0;
-            align-self: flex-start;
-            float: left;
-        }
-        .from-you {
-            background: #4caf50;
-            color: white;
-            align-self: flex-end;
-            float: right;
-            margin-left: auto;
-        }
-        .footer {
-            background-color: #333;
-            display: flex;
-            padding: 10px;
-            align-items: center;
-            flex-shrink: 0;
-        }
-        .footer input {
-            flex: 1;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            margin-right: 10px;
-        }
-        .footer button {
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            background-color: #4caf50;
-            color: white;
-            cursor: pointer;
-        }
-    </style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        background-color: #e5ddd5;
+    }
+
+    .header {
+        background-color: #075e54;
+        color: white;
+        padding: 14px;
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: 600;
+        flex-shrink: 0;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    }
+
+    .chat-container {
+        flex: 1;
+        overflow-y: auto;
+        padding: 14px;
+        background-color: #e5ddd5;
+        background-image:
+            linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+
+    .message {
+        margin: 8px 0;
+        padding: 10px 14px;
+        border-radius: 12px;
+        max-width: 72%;
+        clear: both;
+        line-height: 1.4;
+        font-size: 16px;
+        word-wrap: break-word;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.08);
+    }
+
+    .from-them {
+        background: #ffffff;
+        color: #111;
+        float: left;
+        border-top-left-radius: 4px;
+    }
+
+    .from-you {
+        background: #dcf8c6;
+        color: #111;
+        float: right;
+        margin-left: auto;
+        border-top-right-radius: 4px;
+    }
+
+    .footer {
+        background-color: #f0f0f0;
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        flex-shrink: 0;
+        border-top: 1px solid #d0d0d0;
+    }
+
+    .footer input {
+        flex: 1;
+        padding: 12px;
+        border-radius: 20px;
+        border: none;
+        background: white;
+        font-size: 15px;
+        outline: none;
+        margin-right: 10px;
+    }
+
+    .footer button {
+        padding: 10px 16px;
+        border: none;
+        border-radius: 20px;
+        background-color: #128c7e;
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .footer button:active {
+        opacity: 0.8;
+    }
+</style>
 </head>
 <body>
     <div class="header">Phoenix</div>
