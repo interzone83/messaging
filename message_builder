@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chat Builder</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f2f2f2;
+    }
+
+    label, select, textarea, button {
+      display: block;
+      width: 100%;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    textarea {
+      height: 80px;
+    }
+
+    button {
+      padding: 12px;
+    }
+
+    #preview {
+      background: white;
+      padding: 15px;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+    }
+
+    .message {
+      margin: 10px 0;
+      padding: 10px 14px;
+      border-radius: 14px;
+      max-width: 70%;
+      clear: both;
+    }
+
+    .from-them {
+      background: #e0e0e0;
+      float: left;
+    }
+
+    .from-you {
+      background: #4caf50;
+      color: white;
+      float: right;
+    }
+
+    #output {
+      width: 100%;
+      height: 220px;
+      margin-top: 20px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Chat Message Builder</h2>
+
+  <label>Sender</label>
+  <select id="sender">
+    <option value="from-them">Jessica</option>
+    <option value="from-you">You</option>
+  </select>
+
+  <label>Message</label>
+  <textarea id="message" placeholder="Type the message here"></textarea>
+
+  <button onclick="addMessage()">Add Message</button>
+  <button onclick="copyHTML()">Copy Generated HTML</button>
+  <button onclick="clearChat()">Clear</button>
+
+  <h3>Preview</h3>
+  <div id="preview"></div>
+
+  <h3>Generated HTML</h3>
+  <textarea id="output" readonly></textarea>
+
+  <script>
+    let messagesHTML = "";
+
+    function addMessage() {
+      const sender = document.getElementById("sender").value;
+      const text = document.getElementById("message").value.trim();
+
+      if (!text) return;
+
+      const safeText = text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\n/g, "<br>");
+
+      const messageLine = `<div class="message ${sender}">${safeText}</div>\n`;
+
+      messagesHTML += messageLine;
+
+      document.getElementById("preview").innerHTML = messagesHTML;
+      document.getElementById("output").value = messagesHTML;
+      document.getElementById("message").value = "";
+    }
+
+    function copyHTML() {
+      const output = document.getElementById("output");
+      output.select();
+      document.execCommand("copy");
+      alert("Message HTML copied.");
+    }
+
+    function clearChat() {
+      messagesHTML = "";
+      document.getElementById("preview").innerHTML = "";
+      document.getElementById("output").value = "";
+    }
+  </script>
+
+</body>
+</html>
