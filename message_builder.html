@@ -80,45 +80,64 @@
   <div id="preview"></div>
 
   <h3>Generated HTML</h3>
-  <textarea id="output" readonly></textarea>
+  <textarea id="output" oninput="updatePreview()"></textarea>
 
   <script>
-    let messagesHTML = "";
+  let messagesHTML = "";
 
-    function addMessage() {
-      const sender = document.getElementById("sender").value;
-      const text = document.getElementById("message").value.trim();
+  function addMessage() {
+    const sender = document.getElementById("sender").value;
+    const text = document.getElementById("message").value.trim();
 
-      if (!text) return;
+    if (!text) return;
 
-      const safeText = text
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/\n/g, "<br>");
+    const safeText = text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/\n/g, "<br>");
 
-      const messageLine = `<div class="message ${sender}">${safeText}</div>\n`;
+    const messageLine =
+      `<div class="message ${sender}">${safeText}</div>\n`;
 
-      messagesHTML += messageLine;
+    messagesHTML += messageLine;
 
-      document.getElementById("preview").innerHTML = messagesHTML;
-      document.getElementById("output").value = messagesHTML;
-      document.getElementById("message").value = "";
-    }
+    updateOutput();
+    document.getElementById("message").value = "";
+  }
 
-    function copyHTML() {
-      const output = document.getElementById("output");
-      output.select();
-      document.execCommand("copy");
-      alert("Message HTML copied.");
-    }
+  function updateOutput() {
+    const output = document.getElementById("output");
 
-    function clearChat() {
-      messagesHTML = "";
-      document.getElementById("preview").innerHTML = "";
-      document.getElementById("output").value = "";
-    }
-  </script>
+    output.value = messagesHTML;
+
+    updatePreview();
+  }
+
+  function updatePreview() {
+    const output = document.getElementById("output").value;
+
+    document.getElementById("preview").innerHTML = output;
+
+    messagesHTML = output;
+  }
+
+  function copyHTML() {
+    const output = document.getElementById("output");
+
+    output.select();
+    document.execCommand("copy");
+
+    alert("Message HTML copied.");
+  }
+
+  function clearChat() {
+    messagesHTML = "";
+
+    document.getElementById("preview").innerHTML = "";
+    document.getElementById("output").value = "";
+  }
+</script>
 
 </body>
 </html>
